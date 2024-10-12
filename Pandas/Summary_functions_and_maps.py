@@ -60,7 +60,7 @@ bargain_idx = (reviews.points / reviews.price).idxmax()
 bargain_wine = reviews.loc[bargain_idx, 'title']
 
 # Q6 Counting how many times each of these two words appears in the description column in the dataset
-n_trop = reviews.description.map(lambda desc: "tropical" in desc).sum()
+n_trop = reviews.description.map(lambda desc: "tropical" in desc).sum()  # The map() function applies the lambda function to each description (desc) in this column.
 n_fruity = reviews.description.map(lambda desc: "fruity" in desc).sum()
 descriptor_counts = pd.Series([n_trop, n_fruity], index=['tropical', 'fruity'])
 
