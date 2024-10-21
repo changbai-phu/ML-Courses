@@ -56,4 +56,20 @@ reviews_written = reviews.groupby(['taster_twitter_handle']).taster_twitter_hand
 # that much was given in a review. Sort the values by price, ascending
 best_rating_per_price = reviews.groupby('price')['points'].max().sort_index()
 
-#Q3 
+#Q3 Create a DataFrame whose index is the variety category from the dataset and whose values are the min and 
+# max values thereof. 
+price_extremes = reviews.groupby('variety').price.agg([min, max])
+
+#Q4 Create a variable sorted_varieties containing a copy of the dataframe from the previous question where varieties 
+# are sorted in descending order based on minimum price, then on maximum price (to break ties).
+# Note: 'False' - uppercase matters
+price_extremes = reviews.groupby('variety').price.agg([min, max])
+sorted_varieties = price_extremes.sort_values(by=['min', 'max'], ascending=False)
+
+#Q5 Create a Series whose index is reviewers and whose values is the average review score given out by that reviewer. 
+reviewer_mean_ratings = reviews.groupby('taster_name')['points'].mean()
+# can run reviewer_mean_ratings.describe() to get more information about this new Series just created
+
+#Q6 Create a Series whose index is a MultiIndexof {country, variety} pairs. For example, a pinot noir produced in the US 
+# should map to {"US", "Pinot Noir"}. Sort the values in the Series in descending order based on wine count.
+country_variety_counts = reviews.groupby(['country', 'variety']).variety.count().sort_values(ascending=False)
