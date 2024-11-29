@@ -20,3 +20,11 @@ Basic concepts
 
 4. randonmness in model training
 - We introduce some randomness in model training (random_state in sklearn), this is to avoid overfitting that the model is highly dependent on the training data we provided and causing low accuracy when evaluating using test data. 
+
+5. Model Validation (meausre predictive accuracy)
+- Metrics for summarizing model quality
+    - Mean Absolute Error (MAE): take the average of the absolute errors, while each error = actual - predicted. 
+    - sklearn has a function mean_absolute_error to calculate MAE
+- The problem with "in-sample" scores: model may only accurate when evaluate using only training data, and very inaccurate when used in practice.
+- Validation data: exclude some data from the model-building process, and then use those to test the model's accuracy.
+- sklearn has a function train_test_split to break up the data into training data and validation data.
