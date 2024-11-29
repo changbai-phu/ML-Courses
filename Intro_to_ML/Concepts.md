@@ -8,6 +8,7 @@ Basic concepts
 
 2. Decision Tree
 - more "splits" (if conditions) - called "deeper" tree
+    - 10 splits: 2^10=1024 leaves (10th level)
 - leaf: the final prediction we make (bottom of the tree)
 
 3. How to build and use a model
@@ -28,3 +29,13 @@ Basic concepts
 - The problem with "in-sample" scores: model may only accurate when evaluate using only training data, and very inaccurate when used in practice.
 - Validation data: exclude some data from the model-building process, and then use those to test the model's accuracy.
 - sklearn has a function train_test_split to break up the data into training data and validation data.
+
+6. Underfitting and Overfitting
+- Overfitting: a model matches the training data almost perfectly, but does poorly in validation and other new data.
+- Underfitting: a model performs poorly in training data - failed to capture patterns.
+- there is a sweet spot between underfitting and before go into overfitting.
+- e.g., max_leaf_nodes argument allows us to control overfitting/underfitting since the more leaves we make, the more we are moving to the overfitting.
+
+
+# References mentioned in the Kaggle course
+- https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html 
