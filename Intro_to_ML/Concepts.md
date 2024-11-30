@@ -36,6 +36,9 @@ Basic concepts
 - there is a sweet spot between underfitting and before go into overfitting.
 - e.g., max_leaf_nodes argument allows us to control overfitting/underfitting since the more leaves we make, the more we are moving to the overfitting.
 
+7. Random forests - class RandomForestRegressor()
+- use multiple trees and then take the average of the predictions of each component tree.
+
 
 # References mentioned in the Kaggle course
 - https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html 
