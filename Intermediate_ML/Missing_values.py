@@ -174,4 +174,29 @@ imputed_X_valid.columns = X_valid.columns
 print("MAE (Imputation):")
 print(score_dataset(imputed_X_train, imputed_X_valid, y_train, y_valid))
 
+# Q4: Generate test predictions
+'''
+Once you've preprocessed the training and validation features, 
+you'll train and evaluate a random forest model. 
+Then, you'll preprocess the test data before generating predictions that can be submitted to the competition!
+'''
+# Preprocessed training and validation features
+final_X_train = pd.DataFrame(imputer.fit_transform(X_train))
+final_X_valid = pd.DataFrame(imputer.transform(X_valid))
+# Define and fit model
+model = RandomForestRegressor(n_estimators=100, random_state=0)
+model.fit(final_X_train, y_train)
+# Get validation predictions and MAE
+preds_valid = model.predict(final_X_valid)
+print("MAE (Your approach):")
+print(mean_absolute_error(y_valid, preds_valid))
 
+# Fill in the line below: preprocess test data
+final_X_test = pd.DataFrame(imputer.transform(X_test))
+# Fill in the line below: get test predictions
+preds_test = model.predict(final_X_test)
+
+# Save test predictions to file
+output = pd.DataFrame({'Id': X_test.index,
+                       'SalePrice': preds_test})
+output.to_csv('submission_missing_value.csv', index=False)
