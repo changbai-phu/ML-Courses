@@ -160,5 +160,18 @@ print("MAE (Drop columns with missing values):")
 print(score_dataset(reduced_X_train, reduced_X_valid, y_train, y_valid))
 
 # Q3: Imputation
+from sklearn.impute import SimpleImputer
+
+# Fill in the lines below: imputation
+imputer = SimpleImputer(strategy='mean')
+imputed_X_train = pd.DataFrame(imputer.fit_transform(X_train))
+imputed_X_valid = pd.DataFrame(imputer.transform(X_valid))
+
+# Fill in the lines below: imputation removed column names; put them back
+imputed_X_train.columns = X_train.columns
+imputed_X_valid.columns = X_valid.columns
+
+print("MAE (Imputation):")
+print(score_dataset(imputed_X_train, imputed_X_valid, y_train, y_valid))
 
 
