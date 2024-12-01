@@ -16,3 +16,17 @@ Course outline
 - use only SimpleImputator().fit_transform(X_train), but use SimpleImputator().transform(X_val)
     - Reason: to avoid data leakage. It doesn't mean that we keep missing values in test data still missing, but instead, we uses the previously calculated mean values (from the training data) to fill in the missing values in the test data. This way, the test data gets its missing values imputed, but no information from the test data is used to calculate the imputation values.
     - can also make predictions be more consistent with real-world data, and maintain fair evaluatioon by using pre-computed values only based on training data. 
+
+3. Categorical Variables
+- e.g., how oftern you eat breakfast, here are the options: Never, Rarely, Most days, or Everdays. 
+- response can only fall into a fixed pre-set categories.
+
+4. 3 approaches to deal with categorical variables
+- Drop Categorical variables
+- Ordinal Encoding (from sklearn.preprocessing import OrdinalEncoder): assign each unique value to a different integer. e.g., assign number from 0 to 3 to Never to Everydays.
+- One-Hot Encoding (from sklearn.preprocessing import OneHotEncoder): create extra columns to indicate the presence or absence of each value in the original data. 
+    - e.g., Mark 1 for the entries in the new col Red if it has color Red, Mark 0 in the new col Red if it has color other than Red.
+    - Compare to ordinal encoding: One-Hot does not assume an ordering of the categories. 
+    - Nominal variables: categorical variables that don't have an intrinsic ranking.
+    - This approach doesn't work well if have large number of categorical variables.
+
