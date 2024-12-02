@@ -29,4 +29,6 @@ Course outline
     - Compare to ordinal encoding: One-Hot does not assume an ordering of the categories. 
     - Nominal variables: categorical variables that don't have an intrinsic ranking.
     - This approach doesn't work well if have large number of categorical variables.
+    - We one-hot encode columns with relatively low cardinality. High cardinality columns can be dropped or use ordinal encoding. 
 
+4. Cardinality: # of unique entries of a categorical variable
