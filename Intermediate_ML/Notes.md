@@ -32,3 +32,9 @@ Course outline
     - We one-hot encode columns with relatively low cardinality. High cardinality columns can be dropped or use ordinal encoding. 
 
 4. Cardinality: # of unique entries of a categorical variable
+
+5. Pipelines: automate workflows that include multiple preprocessing steps, ensure consistency in preprocessing, make code clean and organized
+- Define preprocessing steps (ColumnTransformer)
+- Define the model 
+- Create and Evaluate the pipeline (Pipeline)
+    - can supply the processed features in X_valid to the predict() 
