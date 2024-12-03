@@ -101,7 +101,7 @@ num_of_tree = [50, 100, 150, 200, 250, 300, 350, 400]
 results = {num: get_score(num) for num in num_of_tree}
 
 import matplotlib.pyplot as plt
-%matplotlib inline
+# %matplotlib inline
 plt.plot(list(results.keys()), list(results.values()))
 plt.show()
 
