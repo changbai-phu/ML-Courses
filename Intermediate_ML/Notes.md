@@ -33,8 +33,21 @@ Course outline
 
 4. Cardinality: # of unique entries of a categorical variable
 
-5. Pipelines: automate workflows that include multiple preprocessing steps, ensure consistency in preprocessing, make code clean and organized
+5. Pipelines: automate workflows that include multiple preprocessing steps, ensure consistency in preprocessing, make code clean and organized, use for cross-validation and hyperparameter tuning
 - Define preprocessing steps (ColumnTransformer)
 - Define the model 
 - Create and Evaluate the pipeline (Pipeline)
     - can supply the processed features in X_valid to the predict() 
+
+6. Cross-Validation (cross_val_score())
+- So far, we decided what predictive variables to use, what types of models to use, what arguments to supply based on our measurement on model using the validation data set which we splitted from the orginal dataset. 
+- In cross-validation: we run modeling process on different subsets of the data. 
+    - e.g., divide the data into 5 pieces (folds), each 20% of the full dataset. Then, run experiment for each fold which is each time, we hold one fold as a validation set, the rest as training data and do the measurement. Repeat for all 5 folds. 
+- when should we use cross-validation?
+    - small datasets
+    - for large datasets, one single validation set is usually sufficient. Or if multiple experiment yields the similar results. 
+
+7. Hyperparameter optimization
+- grid search: determine the best combination of parameters for a ML model (GridSearchCV())
+
+8. Gradient Boosting
