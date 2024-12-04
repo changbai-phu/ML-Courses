@@ -51,3 +51,26 @@ Course outline
 - grid search: determine the best combination of parameters for a ML model (GridSearchCV())
 
 8. Gradient Boosting
+- ensemble methods:
+    - (random forest method): combine the predictions of several models. 
+    - gradient boosting is another ensemble method
+- Gradient boosting: go through cycles to iteratively add models into an ensemble. It is sequential.
+    - define a model, generate predictions
+    - use predictions to calculate a loss function (e.g., mean squared error) -- use gradient descent on the loss function
+    - use the loss function to train a new model
+    - add the new model to ensemble
+    - repeat 
+- XGBoost: extreme gradient boosting (xgboost.XGBRegressor)
+
+9. Parameter Tuning in XGBoost
+- n_estimators = num of models in the ensemble (usually 100-1000)
+- early_stopping_rounds: automatically find the ideal value for n_estimators.
+    - stop iterating when the validation score stops improving. 
+    - need to specify a number before stopping. (usually 5 is good)
+- eval_set: set validation dataset
+- learning_rate: multiply the predictions by a small number before add models to the ensemble
+    - in general, small learning rate + large n_estimators -> more accurate XGBoost models.
+    - default learning_rate = 0.1
+- n_jobs: use parallelism to build models faster.
+    - set that equal to num of cores of the machine
+    
