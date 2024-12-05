@@ -73,4 +73,18 @@ Course outline
     - default learning_rate = 0.1
 - n_jobs: use parallelism to build models faster.
     - set that equal to num of cores of the machine
-    
+
+10. Data Leakage
+- it happens when training data contains information about the target, but similar data not appear in data 
+for prediction, causing poor performance in production.
+- 2 types of leakage:
+    - target leakage:
+        - happens when target variables (the variables you want to predict) are included in training data.
+        - to avoid: only include features available before the prediction is made
+    - train-test contamination
+        - happens when validation data leaks to training data 
+        - e.g., accidentally run preprocessing before train_test_split()
+        - e.g., when preprocessing, impute mean of the whole dataset (train+valid) instead of just mean of training data
+        - causing invalid model evaluation
+        - to avoid: proper data splitting, using Pipeline to ensure transformations are applied only to the training data during model fitting.
+        
