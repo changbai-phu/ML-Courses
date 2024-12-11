@@ -276,3 +276,77 @@ test_preds = best_model.predict(X_test)
 output = pd.DataFrame({'PassengerId': test_data.PassengerId, 'Survived': test_preds})
 output.to_csv('submission_GridSearch.csv', index=False)
 print("Your submission was successfully saved!")
+
+
+'''
+Experiment 7: GridSearch + XGBoostCLassifier
+Since there is nothing more preprocessing can do with the current selection of features,
+now it's time to change models. XGBClassifier is used in this experiment.
+Test result: 0.7713004484304933
+Result: 0.77990 (increase little bit than exp6)
+'''
+from sklearn.model_selection import GridSearchCV
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import GridSearchCV, train_test_split, cross_val_score
+from sklearn.preprocessing import LabelEncoder
+from sklearn.metrics import accuracy_score
+from xgboost import XGBClassifier
+
+y = train_data["Survived"]
+features = ["Pclass", "Sex", "SibSp", "Parch"]
+X = train_data[features]
+X_test = test_data[features]
+
+train_X, val_X, train_y, val_y = train_test_split(X, y, random_state=1)
+
+# Label encode the 'Sex' feature
+label_encoder = LabelEncoder()
+train_X['Sex'] = label_encoder.fit_transform(train_X['Sex'])
+val_X['Sex'] = label_encoder.transform(val_X['Sex'])
+X_test['Sex'] = label_encoder.transform(X_test['Sex'])
+
+# Define the model
+model = XGBClassifier(random_state=1, use_label_encoder=False, eval_metric='logloss')
+
+# Define the hyperparameter grid
+param_grid = {
+    'n_estimators': [100, 200, 300],
+    'max_depth': [3, 5, 10],
+    'min_samples_split': [2, 5, 10],
+    'learning_rate': [0.01, 0.1, 0.2]
+}
+
+# Initialize GridSearchCV
+grid_search = GridSearchCV(
+    estimator=model,
+    param_grid=param_grid,
+    cv=5,  # 5-fold cross-validation
+    scoring='accuracy',  # Evaluation metric
+    verbose=2,
+    n_jobs=-1  # Use all available processors
+)
+
+# Fit the grid search on training data
+grid_search.fit(train_X, train_y)
+
+# Print the best parameters and best score
+print("Best Parameters:", grid_search.best_params_)
+print("Best Score:", grid_search.best_score_)
+'''
+Best Parameters: {'learning_rate': 0.01, 'max_depth': 10, 'min_samples_split': 2, 'n_estimators': 200}
+Best Score: 0.7919762091796655
+'''
+
+# Use the best estimator to predict
+best_model = grid_search.best_estimator_
+val_preds = best_model.predict(val_X)
+accuracy = accuracy_score(val_y, val_preds)
+print(f"Validation Accuracy: {accuracy}")
+
+# Predict on the test set using the best model
+test_preds = best_model.predict(X_test)
+
+output = pd.DataFrame({'PassengerId': test_data.PassengerId, 'Survived': test_preds})
+output.to_csv('submission_GridSearch2_XGBoost.csv', index=False)
+print("Your submission was successfully saved!")
+
