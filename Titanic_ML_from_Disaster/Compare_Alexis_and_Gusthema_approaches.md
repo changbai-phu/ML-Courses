@@ -1,0 +1,34 @@
+Here's a comparison of the two Titanic tutorials you provided, in table format:
+
+| **Aspect**                         | **[Alexisbcook Titanic Tutorial](https://www.kaggle.com/code/alexisbcook/titanic-tutorial)**                            | **[Gusthema Titanic Competition with TensorFlow Decision Forests](https://www.kaggle.com/code/gusthema/titanic-competition-w-tensorflow-decision-forests)**                         |
+|------------------------------------|-------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Tutorial Objective**             | Basic tutorial for Titanic dataset focusing on classification problem (Survival prediction).                           | Advanced tutorial focusing on using TensorFlow Decision Forests (TF-DF) for Titanic survival prediction.                                          |
+| **Approach**                       | Simple machine learning approach using traditional algorithms (e.g., logistic regression, random forest).               | Uses TensorFlow Decision Forests, a deep learning model designed for tree-based methods, like gradient boosted decision trees.                   |
+| **Framework Used**                 | Scikit-learn (for preprocessing, model training, evaluation).                                                           | TensorFlow Decision Forests (TF-DF), a specialized library for tree-based models within the TensorFlow ecosystem.                                 |
+| **Modeling Steps**                 | - Data preprocessing (handling missing data, feature encoding).<br>- Train-test split.<br>- Feature selection.<br>- Train a model and evaluate it. | - Data preprocessing (handle missing data, one-hot encoding).<br>- Model creation using TensorFlow Decision Forests.<br>- Hyperparameter tuning and model evaluation. |
+| **Feature Engineering**            | Basic feature engineering (handling missing values, creating new features like "family_size").                           | Similar feature engineering with more emphasis on how TF-DF handles categorical features directly.                                               |
+| **Modeling Algorithm**             | Logistic Regression, Random Forest, SVM, etc. (multiple classifiers).                                                   | Decision Forests (TensorFlow Decision Forests), a tree-based model.                                                                             |
+| **Hyperparameter Tuning**          | Not explicitly mentioned, although there is model evaluation and comparison.                                             | Includes detailed steps for hyperparameter tuning in TF-DF.                                                                                     |
+| **Evaluation Metric**              | Accuracy, confusion matrix, classification report.                                                                     | Accuracy, confusion matrix, and additional insights using TensorFlow’s tools.                                                                   |
+| **Visualization**                  | Uses `matplotlib` and `seaborn` to visualize data and evaluation results (e.g., bar plots, heatmaps).                  | Includes visualization of the decision tree and model insights via TensorFlow tools (e.g., `tfdf.model.summary()`).                             |
+| **Implementation Complexity**      | Easy to follow, suitable for beginners with basic machine learning knowledge.                                           | Slightly more advanced, assumes some knowledge of TensorFlow and tree-based models.                                                             |
+| **Data Handling**                  | Focuses on cleaning and handling missing values manually, one-hot encoding categorical variables.                       | TF-DF automates some aspects of data handling (like encoding) but still includes pre-processing steps manually in some cases.                    |
+| **Target Audience**                | Beginner to intermediate Kaggle users and machine learning practitioners.                                              | Intermediate to advanced users with a focus on TensorFlow and machine learning models for structured data.                                        |
+| **Learning Outcome**               | Learn basic machine learning techniques (logistic regression, random forest) for classification tasks.                 | Learn how to apply TensorFlow Decision Forests for structured data and hyperparameter tuning for improved model performance.                     |
+| **Kaggle Kernel Features**         | Simple, clean notebook with inline comments and straightforward code.                                                    | More complex with detailed explanations, and multiple code cells for in-depth TensorFlow Decision Forests application.                            |
+| **Output/Model Performance**       | Achieves reasonable performance on the dataset, with simplicity in model evaluation.                                     | Stronger performance expected with TensorFlow Decision Forests, especially after hyperparameter tuning and feature handling.                       |
+
+### **Key Similarities:**
+1. **Goal**: Both tutorials aim to solve the Titanic survival prediction problem (binary classification).
+2. **Data Preprocessing**: Both handle missing data and categorical variables (e.g., using one-hot encoding).
+3. **Model Evaluation**: Both tutorials focus on model evaluation metrics like accuracy and confusion matrices.
+4. **Visualization**: Both include some form of data visualization to aid understanding.
+
+### **Key Differences:**
+1. **Framework**: Alexisbcook uses traditional machine learning frameworks (e.g., Scikit-learn), while Gusthema uses TensorFlow Decision Forests, a more advanced tree-based model framework.
+2. **Modeling Algorithms**: Alexisbcook focuses on simpler models like logistic regression and random forests, whereas Gusthema emphasizes tree-based deep learning models via TF-DF.
+3. **Complexity**: Alexisbcook's tutorial is more beginner-friendly, whereas Gusthema’s involves more advanced techniques and TensorFlow knowledge.
+4. **Hyperparameter Tuning**: Gusthema's tutorial explicitly covers hyperparameter tuning, a more advanced topic.
+5. **Target Audience**: Alexisbcook is for those starting with machine learning, while Gusthema’s tutorial targets those already familiar with TensorFlow and machine learning.
+
+If you're looking to dive into TensorFlow and more advanced tree-based methods, Gusthema's tutorial is great. For a simpler, more general machine learning approach, Alexisbcook's tutorial is a better starting point.
