@@ -14,6 +14,7 @@ This repository is to store codes (both from tutorials and exercises) that are u
 - Intermediate Machine Learning
 - Feature Engineering
 - Geospatial Analysis
+- (Competition) Titanic Competition Codes
 
 ## Google Courses will be covered in this repository
 - Introduction to Machine Learning
