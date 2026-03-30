@@ -1,11 +1,17 @@
 Regression: 
+- used to predict continous variables, e.g., sale forecasting, etc
 - simple regression: a single independent variable predicting a dependant variable
     - is represented by a linear equation
     - find the best fit line 
     - goal: find the minimum MSE (how well the regression line fits the data)
     - OLS (ordinary least squares) regression: good for smaller and simple dataset, easy to use, no require tuning, reduced accuracy by outliers. 
 - multiple regression 
-- used to predict continous variables, e.g., sale forecasting, etc
+    - adding too many variables -> overfitting 
+    - to improve: convert categorical independent variable into numerical 
+    - use uncorrelated variables to build multiple regression model
+- Polynomial and Non-linear Regression
+    - non-linear equations: polynomial, exponential, logarithmic 
+    - to find the approriate regression model, can use: scatter plots, optimization tech like gradient descent, or try with regression trees and NN. 
 - algorithms: 
     - Linear and polynomial
     - random forest
